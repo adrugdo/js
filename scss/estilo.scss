@@ -21,8 +21,19 @@ footer {
             height: 80px;
         }
 }
-/*PLANES*/
 
+
+/*CONTACTO*/
+
+    @media only screen and (max-width: 600px) {
+        iframe   {
+           height: 218px;
+        }
+        
+    } 
+
+
+/*PLANES*/
 #planDescripcion {
     height: 230px;
 }
