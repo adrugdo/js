@@ -54,16 +54,10 @@ else {
 form.addEventListener("submit",nuevoUsuario)
 
 
-/*
-
-class="badge bg-danger"
-
-
-
-*/
-
 
 /*
+codigo viejo
+
 
 let nombre2 = prompt("ingrese nuevo nombre \n Debe contener letras solamente");
     if(expresiones.nombre.test(nombre2)){
