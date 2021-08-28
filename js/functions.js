@@ -22,24 +22,29 @@ const usuarios = [];
 let submit = document.getElementById("submit")
 let form = document.getElementById("form")
 let invalidnombre = document.getElementById("invalidNombre")
+let invalidMail = document.getElementById("invalidMail")
+let invalidApellido = document.getElementById("invalidApellido")
+let invalidLocalidad = document.getElementById("invalidLocalidad")
+let invalidCP = document.getElementById("invalidCP")
+let invalidTelefono = document.getElementById("invalidTelefono")
 
 // Funcion
 const nuevoUsuario = (e) => {
     e.preventDefault()
 
-    let correo = document.getElementById("email").value
+    let correo = validacionMail()
     let nombre = validacionnombre()
-    let apellido = document.getElementById("apellido").value
+    let apellido = validacionApellido()
     let localidad = document.getElementById("localidad").value
-    let cp = document.getElementById("cp").value
-    let telefono = document.getElementById("telefono").value
+    let cp = validacionCP()
+    let telefono = validacionTelefono()
     console.log(`${correo} ${nombre} ${apellido} ${localidad}`)  
 }
 
 // validacion nombre y mensaje de error
 const validacionnombre = () => {
-if(expresiones.nombre.test(document.getElementById("email").value)){
-    this.nombre = document.getElementById("email").value;
+if(expresiones.nombre.test(document.getElementById("nombre").value)){
+    this.nombre = document.getElementById("nombre").value;
     console.log("nombre true");
 }
 else {
@@ -49,6 +54,58 @@ else {
     invalidnombre.innerHTML = `Ingrese un nombre valido`
 }
 }
+
+const validacionApellido = () => {
+    if(expresiones.nombre.test(document.getElementById("apellido").value)){
+        this.apellido = document.getElementById("apellido").value;
+        console.log("Apellido true");
+    }
+    else {
+        console.log("Apellido false");
+        invalidApellido.classList.add('bg-danger')
+        invalidApellido.classList.add('badge')
+        invalidApellido.innerHTML = `Ingrese un apellido valido`
+    }
+    }
+
+const validacionMail = () => {
+    if(expresiones.correo.test(document.getElementById("email").value)){
+        this.correo = document.getElementById("email").value;
+        console.log("mail true");
+    }
+    else {
+        console.log("mail false");
+        invalidMail.classList.add('bg-danger')
+        invalidMail.classList.add('badge')
+        invalidMail.innerHTML = `Ingrese un email valido`
+    }
+    }
+
+const validacionCP = () => {
+    if(expresiones.CP.test(document.getElementById("cp").value)){
+        this.cp = document.getElementById("cp").value;
+        console.log("cp true");
+    }
+    else {
+        console.log("cp false");
+        invalidCP.classList.add('bg-danger')
+        invalidCP.classList.add('badge')
+        invalidCP.innerHTML = `Ingrese un CP valido`
+    }
+    }
+
+const validacionTelefono = () => {
+    if(expresiones.telefono.test(document.getElementById("telefono").value)){
+        this.telefono = document.getElementById("telefono").value;
+        console.log("telefono true");
+    }
+    else {
+        console.log("telefono false");
+        invalidTelefono.classList.add('bg-danger')
+        invalidTelefono.classList.add('badge')
+        invalidTelefono.innerHTML = `Ingrese un telefono valido`
+    }
+    }
 
 // tomar datos
 form.addEventListener("submit",nuevoUsuario)
